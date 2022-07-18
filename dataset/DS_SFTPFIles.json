@@ -1,0 +1,21 @@
+{
+	"name": "DS_SFTPFIles",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sftp2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "SftpLocation"
+			},
+			"compression": {
+				"type": "ZipDeflate",
+				"level": "Optimal"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,372 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureDatabricksDeltaLakeSink",
+						"importSettings": {
+							"type": "AzureDatabricksDeltaLakeImportCommand"
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "LS_BlobConnection",
+							"type": "LinkedServiceReference"
+						},
+						"path": "raw"
+					},
+					"enableSkipIncompatibleRow": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['header']['orderID']"
+								},
+								"sink": {
+									"name": "OrderID",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['header']['country']"
+								},
+								"sink": {
+									"name": "country",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['header']['date']"
+								},
+								"sink": {
+									"name": "OrderCreatedDate",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['header']['orderType']"
+								},
+								"sink": {
+									"name": "orderType",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['header']['orderStatus']"
+								},
+								"sink": {
+									"name": "orderStatus",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['header']['brandID']"
+								},
+								"sink": {
+									"name": "brandID",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['header']['splitOrderFlag']"
+								},
+								"sink": {
+									"name": "splitOrderFlag",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['header']['fulfillmentStrategy']"
+								},
+								"sink": {
+									"name": "fulfillmentStrategy",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['header']['checkoutType']"
+								},
+								"sink": {
+									"name": "checkoutType",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['pickupPoint']"
+								},
+								"sink": {
+									"name": "ConsignmentID",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['consignmentID']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['warehouseID']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['warehouseRanking']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['selectedDeliveryMode']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['deliveryFrom']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['deliveryTo']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['minDays']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['maxDays']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['description']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['country']"
+								},
+								"sink": {
+									"name": "country",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['deliveryMode']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['deliveryType']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['deliveryName']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['pickUpPointOrClickAndCollectUID']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['lastName']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['streetName']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['postalCode']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['town']"
+								},
+								"sink": {
+									"name": "town",
+									"type": "string"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['phonePrefix']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['shippingAddress']['phoneNumber']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['entryNumber']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['variantCode']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['seasonCode']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['quantity']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['price']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['priceType']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['sourcingWarehouseType']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['entryDiscountInfo'][0]['discountCode']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['entryDiscountInfo'][0]['discountName']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['entryDiscountInfo'][0]['discountValue']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['entryDiscountInfo'][0]['couponType']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['entryDiscountInfo'][0]['backendID']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['consignments'][0]['entries'][0]['entryDiscountInfo'][0]['promotionType']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paymentDetails']['paymentTransactions'][0]['paymentProvider']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paymentDetails']['paymentTransactions'][0]['paymentMode']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paymentDetails']['paymentTransactions'][0]['cardBrand']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paymentDetails']['paymentTransactions'][0]['amount']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paymentDetails']['paymentTransactions'][0]['paymentFee']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paymentDetails']['paymentTransactions'][0]['reconciliationId']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paymentDetails']['paymentTransactions'][0]['cardSecurityCode']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paymentDetails']['paymentTransactions'][0]['transactionStatus']"
+								}
+							}
+						],
+						"collectionReference": ""
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureDatabricksDeltaLakeDataset1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-06-29T10:18:46Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

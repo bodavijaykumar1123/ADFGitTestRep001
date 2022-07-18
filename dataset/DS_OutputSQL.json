@@ -1,0 +1,17 @@
+{
+	"name": "DS_OutputSQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "File_2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

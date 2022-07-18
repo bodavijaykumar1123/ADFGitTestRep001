@@ -1,0 +1,19 @@
+{
+	"name": "DS_SFTPOutput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLSConnection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "SFTPRoot",
+				"fileSystem": "refined"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

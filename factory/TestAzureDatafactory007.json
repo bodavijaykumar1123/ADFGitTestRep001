@@ -1,0 +1,9 @@
+{
+	"name": "TestAzureDatafactory007",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c7b4d53e-d993-49cc-98ae-bee8c5804c97",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}

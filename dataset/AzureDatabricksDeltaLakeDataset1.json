@@ -1,0 +1,106 @@
+{
+	"name": "AzureDatabricksDeltaLakeDataset1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDatabricksDeltaLake1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLakeDataset",
+		"typeProperties": {
+			"database": "default",
+			"table": "attributes"
+		},
+		"schema": [
+			{
+				"name": "OrderID",
+				"type": "string"
+			},
+			{
+				"name": "ConsignmentID",
+				"type": "string"
+			},
+			{
+				"name": "OrderCreatedDate",
+				"type": "string"
+			},
+			{
+				"name": "DeliveryPromiseFrom",
+				"type": "string"
+			},
+			{
+				"name": "DeliveryPromiseTo",
+				"type": "string"
+			},
+			{
+				"name": "LastBusinessDeliveryDate",
+				"type": "string"
+			},
+			{
+				"name": "DestinationZone",
+				"type": "string"
+			},
+			{
+				"name": "Hazmat",
+				"type": "string"
+			},
+			{
+				"name": "Market",
+				"type": "string"
+			},
+			{
+				"name": "Warehouse",
+				"type": "string"
+			},
+			{
+				"name": "DeliveryType",
+				"type": "string"
+			},
+			{
+				"name": "ShipmentID",
+				"type": "string"
+			},
+			{
+				"name": "CreatedDateTime",
+				"type": "string"
+			},
+			{
+				"name": "orderType",
+				"type": "string"
+			},
+			{
+				"name": "brandID",
+				"type": "string"
+			},
+			{
+				"name": "splitOrderFlag",
+				"type": "string"
+			},
+			{
+				"name": "checkoutType",
+				"type": "string"
+			},
+			{
+				"name": "fulfillmentStrategy",
+				"type": "string"
+			},
+			{
+				"name": "country",
+				"type": "string"
+			},
+			{
+				"name": "town",
+				"type": "string"
+			},
+			{
+				"name": "orderStatus",
+				"type": "string"
+			},
+			{
+				"name": "StatusDate",
+				"type": "string"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

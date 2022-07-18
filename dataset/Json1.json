@@ -1,0 +1,306 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLSConnection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "daily-sales-20220502093152144-p3o768.json",
+				"fileSystem": "raw"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"customer": {
+					"type": "object",
+					"properties": {
+						"customerID": {
+							"type": "string"
+						},
+						"bpID": {
+							"type": "string"
+						},
+						"guest": {
+							"type": "boolean"
+						},
+						"firstName": {
+							"type": "string"
+						},
+						"lastName": {
+							"type": "string"
+						},
+						"email": {
+							"type": "string"
+						},
+						"clubFlag": {
+							"type": "boolean"
+						}
+					}
+				},
+				"header": {
+					"type": "object",
+					"properties": {
+						"orderID": {
+							"type": "string"
+						},
+						"country": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"timestamp": {
+							"type": "string"
+						},
+						"orderType": {
+							"type": "string"
+						},
+						"eventType": {
+							"type": "string"
+						},
+						"orderStatus": {
+							"type": "string"
+						},
+						"totalPrice": {
+							"type": "number"
+						},
+						"currency": {
+							"type": "string"
+						},
+						"salesApplication": {
+							"type": "string"
+						},
+						"deliveryCost": {
+							"type": "number"
+						},
+						"locale": {
+							"type": "string"
+						},
+						"ipAddress": {
+							"type": "string"
+						},
+						"brandID": {
+							"type": "string"
+						},
+						"splitOrderFlag": {
+							"type": "boolean"
+						},
+						"fulfillmentStrategy": {
+							"type": "string"
+						},
+						"checkoutType": {
+							"type": "string"
+						},
+						"cartID": {
+							"type": "string"
+						},
+						"businessModelID": {
+							"type": "string"
+						},
+						"globalDiscountInfo": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"discountCode": {
+										"type": "string"
+									},
+									"discountName": {
+										"type": "string"
+									},
+									"discountValue": {
+										"type": "number"
+									},
+									"couponType": {
+										"type": "string"
+									},
+									"backendID": {
+										"type": "string"
+									},
+									"promotionType": {
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				},
+				"consignments": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"pickupPoint": {
+								"type": "string"
+							},
+							"consignmentID": {
+								"type": "string"
+							},
+							"warehouseID": {
+								"type": "string"
+							},
+							"warehouseRanking": {
+								"type": "string"
+							},
+							"selectedDeliveryMode": {
+								"type": "string"
+							},
+							"deliveryFrom": {
+								"type": "string"
+							},
+							"deliveryTo": {
+								"type": "string"
+							},
+							"minDays": {
+								"type": "integer"
+							},
+							"maxDays": {
+								"type": "integer"
+							},
+							"description": {
+								"type": "string"
+							},
+							"shippingAddress": {
+								"type": "object",
+								"properties": {
+									"country": {
+										"type": "string"
+									},
+									"deliveryMode": {
+										"type": "string"
+									},
+									"deliveryType": {
+										"type": "string"
+									},
+									"deliveryName": {
+										"type": "string"
+									},
+									"pickUpPointOrClickAndCollectUID": {
+										"type": "string"
+									},
+									"lastName": {
+										"type": "string"
+									},
+									"streetName": {
+										"type": "string"
+									},
+									"postalCode": {
+										"type": "string"
+									},
+									"town": {
+										"type": "string"
+									},
+									"phonePrefix": {
+										"type": "string"
+									},
+									"phoneNumber": {
+										"type": "string"
+									}
+								}
+							},
+							"entries": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"entryNumber": {
+											"type": "string"
+										},
+										"variantCode": {
+											"type": "string"
+										},
+										"seasonCode": {
+											"type": "string"
+										},
+										"quantity": {
+											"type": "integer"
+										},
+										"price": {
+											"type": "number"
+										},
+										"priceType": {
+											"type": "string"
+										},
+										"sourcingWarehouseType": {
+											"type": "string"
+										},
+										"entryDiscountInfo": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"discountCode": {
+														"type": "string"
+													},
+													"discountName": {
+														"type": "string"
+													},
+													"discountValue": {
+														"type": "number"
+													},
+													"couponType": {
+														"type": "string"
+													},
+													"backendID": {
+														"type": "string"
+													},
+													"promotionType": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"paymentDetails": {
+					"type": "object",
+					"properties": {
+						"paymentTransactions": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"paymentProvider": {
+										"type": "string"
+									},
+									"paymentMode": {
+										"type": "string"
+									},
+									"cardBrand": {
+										"type": "string"
+									},
+									"amount": {
+										"type": "number"
+									},
+									"paymentFee": {
+										"type": "number"
+									},
+									"reconciliationId": {
+										"type": "string"
+									},
+									"cardSecurityCode": {
+										"type": "string"
+									},
+									"transactionStatus": {
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
