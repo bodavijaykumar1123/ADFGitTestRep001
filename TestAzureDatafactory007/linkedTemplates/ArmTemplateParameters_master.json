@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "TestAzureDatafactory007"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"LS_ADLSConnection_accountKey": {
+			"value": ""
+		},
+		"LS_Blobstorage_connectionString": {
+			"value": ""
+		},
+		"LS_Datalakegen2_accountKey": {
+			"value": ""
+		},
+		"LS_SQLConnection_connectionString": {
+			"value": ""
+		},
+		"Sftp1_password": {
+			"value": ""
+		},
+		"Sftp2_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://azuredatalakegen2007.dfs.core.windows.net/"
+		},
+		"LS_ADLSConnection_properties_typeProperties_url": {
+			"value": "https://azuredatalakegen2007.dfs.core.windows.net"
+		},
+		"LS_BlobConnection_properties_typeProperties_connectionString_secretName": {
+			"value": "BlobConnectionString"
+		},
+		"LS_Datalakegen2_properties_typeProperties_url": {
+			"value": "https://azuredatalakegen2007.dfs.core.windows.net/"
+		},
+		"LS_HTTPConnection_properties_typeProperties_url": {
+			"value": "@{linkedService().BaseURL}"
+		},
+		"LS_Keyvault_properties_typeProperties_baseUrl": {
+			"value": "https://azurekeyvaulttest01.vault.azure.net/"
+		},
+		"Sftp1_properties_typeProperties_host": {
+			"value": "20.120.15.32"
+		},
+		"Sftp1_properties_typeProperties_userName": {
+			"value": "tester"
+		},
+		"Sftp2_properties_typeProperties_host": {
+			"value": "13.82.219.237"
+		},
+		"Sftp2_properties_typeProperties_userName": {
+			"value": "tester"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
